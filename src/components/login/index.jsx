@@ -22,10 +22,11 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false)
 
   const { message, error, user } = useLoginState()
-  const { doLogin, fetchUser, addEmail } = useLoginActions()
+  const { doLogin, fetchUser, addEmail, removeError } = useLoginActions()
 
   useEffect(() => {
     fetchUser()
+    removeError()
   }, [])
 
   useEffect(() => {
@@ -79,7 +80,7 @@ const Login = () => {
         <Input
           placeholder="E-Mail Address"
           type="email"
-          autoComplete="email"
+          autoComplete="on"
           required
           onChange={(e) => updateInput(e, LABEL.EMAIL)}
           value={email}
@@ -95,7 +96,7 @@ const Login = () => {
           type={showPass ? 'text' : 'password'}
           required
           onChange={(e) => updateInput(e, LABEL.PASSWORD)}
-          autoComplete="current-password"
+          autoComplete="on"
           value={password}
         />
         <Image

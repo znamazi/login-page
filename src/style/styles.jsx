@@ -58,6 +58,20 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0c0b13 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
+    box-shadow: 0 0 0 30px #0c0b13 inset !important;
+    text-fill-color: #ffffff !important;
+  }
   ::placeholder {
     color: #909090;
     opacity: 1; /* Firefox */
@@ -100,6 +114,13 @@ export const Button = styled.button`
     outline: none;
   }
   transform: ${({ transform }) => (transform ? transform : 'skew(-20deg)')};
+  &:hover {
+    transform: scale(1.1)
+      ${({ transform }) => (transform ? transform : 'skew(-20deg)')};
+  }
+  &:hover > * {
+    font-size: 23px;
+  }
 `
 export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   margin-right: 10px;

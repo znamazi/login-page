@@ -2,6 +2,7 @@ import { createReducer } from '@reduxjs/toolkit'
 
 import {
   ADD_USER_EMAIL,
+  REMOVE_ERROR,
   USER_FETCH,
   USER_LOGIN_FAILED,
   USER_LOGIN_SUCCESS,
@@ -52,5 +53,14 @@ export default createReducer(initialState, (builder) => {
   })
   builder.addCase(USER_REGISTER_FAILED, (state, action) => {
     return { ...state, error: true, message: action.payload.message }
+  })
+
+  // Remove error
+  builder.addCase(REMOVE_ERROR, (state) => {
+    return {
+      ...state,
+      message: '',
+      error: ''
+    }
   })
 })

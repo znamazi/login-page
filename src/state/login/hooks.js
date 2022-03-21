@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import {
   ADD_USER_EMAIL,
+  REMOVE_ERROR,
   USER_FETCH,
   USER_LOGIN_FAILED,
   USER_LOGIN_SUCCESS,
@@ -77,5 +78,9 @@ export function useLoginActions() {
     dispatch(ADD_USER_EMAIL(email))
   })
 
-  return { doLogin, fetchUser, doRegister, addEmail }
+  const removeError = useCallback(async () => {
+    dispatch(REMOVE_ERROR())
+  })
+
+  return { doLogin, fetchUser, doRegister, addEmail, removeError }
 }

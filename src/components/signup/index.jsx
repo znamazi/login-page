@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Flex } from 'rebass'
 import { Link } from 'react-router-dom'
 import {
@@ -29,7 +29,11 @@ const Signup = () => {
   const [condition, setCondition] = useState(false)
   const [validationError, setValidationError] = useState()
 
-  const { doRegister } = useLoginActions()
+  const { doRegister, removeError } = useLoginActions()
+
+  useEffect(() => {
+    removeError()
+  }, [])
 
   const updateData = (e) => {
     setValidationError()
@@ -115,6 +119,7 @@ const Signup = () => {
           type="text"
           value={newUser?.username}
           id="username"
+          autoComplete="on"
           onChange={(e) => updateData(e)}
         />
       </InputWrapper>
@@ -127,6 +132,7 @@ const Signup = () => {
           type="email"
           value={newUser?.email}
           id="email"
+          autoComplete="on"
           onChange={(e) => updateData(e)}
           onBlur={checkEmail}
         />
@@ -138,6 +144,7 @@ const Signup = () => {
         <Input
           placeholder="Password"
           type="password"
+          autoComplete="on"
           value={newUser?.pass}
           id="pass"
           onChange={(e) => updateData(e)}
