@@ -27,11 +27,11 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @font-face {
-      font-family: 'NovaFlat-Regular';
+      font-family: 'nova-flat-v22-latin-regular';
       font-weight:normal;
-      src: url(/fonts/NovaFlat-Regular.eot) format('eot'),
-        url(/fonts/NovaFlat-Regular.ttf) format('turetype'),
-        url(/fonts/NovaFlat-Regular.woff) format('woff');
+      src: url(/fonts/nova-flat-v22-latin-regular.eot) format('eot'),
+        url(/fonts/nova-flat-v22-latin-regular.ttf) format('turetype'),
+        url(/fonts/nova-flat-v22-latin-regular.woff) format('woff');
       font-display: block;
     }
     @font-face {

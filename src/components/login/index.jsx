@@ -74,7 +74,7 @@ const Login = () => {
           <Type.MD>{message}</Type.MD>
         </Alert>
       )}
-      <Type.XXXL>LOGIN</Type.XXXL>
+      <Type.XXXL fontFamily="nova-flat-v22-latin-regular">LOGIN</Type.XXXL>
       <InputWrapper margin="20px 0 0" error={validationError === LABEL.EMAIL}>
         <Image src="/assets/icons/mail.svg" />
         <Input

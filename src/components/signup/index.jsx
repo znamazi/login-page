@@ -108,7 +108,7 @@ const Signup = () => {
           <Type.MD>{message}</Type.MD>
         </Alert>
       )}
-      <Type.XXXL>SIGNUP</Type.XXXL>
+      <Type.XXXL fontFamily="nova-flat-v22-latin-regular">SIGNUP</Type.XXXL>
       <InputWrapper
         margin="20px 0 0"
         error={validationError && validationError.type === LABEL.USERNAME}
