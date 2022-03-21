@@ -2,13 +2,13 @@
 import { MemoryRouter as Router } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
 
-import Login from '../components/login'
 import { render, screen } from './test-utils'
+import App from '../App'
 
 beforeEach(async () => {
   render(
     <Router>
-      <Login />
+      <App />
     </Router>
   )
   await screen.findByDisplayValue(/noella.blok@example.com/i)
@@ -67,18 +67,18 @@ test('should prevent login click if user info is incorrect', async () => {
   expect(profile).not.toBeInTheDocument()
 })
 
-// test('should login if user info is correct', async () => {
-//   const email = await screen.findByPlaceholderText('E-Mail Address')
-//   userEvent.clear(email)
-//   userEvent.type(email, 'noella.blok@example.com')
+test('should login if user info is correct', async () => {
+  const email = await screen.findByPlaceholderText('E-Mail Address')
+  userEvent.clear(email)
+  userEvent.type(email, 'noella.blok@example.com')
 
-//   const pass = await screen.findByPlaceholderText('Password')
-//   userEvent.clear(pass)
-//   userEvent.type(pass, 'ping')
+  const pass = await screen.findByPlaceholderText('Password')
+  userEvent.clear(pass)
+  userEvent.type(pass, 'ping')
 
-//   const loginButton = screen.getByRole('button', { name: /login/i })
-//   userEvent.click(loginButton)
+  const loginButton = screen.getByRole('button', { name: /login/i })
+  userEvent.click(loginButton)
 
-//   const profile = await screen.findByText(/Profile/i)
-//   expect(profile).toBeInTheDocument()
-// })
+  const profile = await screen.findByText(/Profile/i)
+  expect(profile).toBeInTheDocument()
+})
